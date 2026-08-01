@@ -1,0 +1,13 @@
+name = "silas"
+compatibility_date = "2026-08-01"
+compatibility_flags = ["nodejs_compat"]
+main = ".svelte-kit/cloudflare/_worker.js"
+assets = { directory = ".svelte-kit/cloudflare", binding = "ASSETS" }
+
+workers_dev = false
+preview_urls = false
+
+[[d1_databases]]
+binding = "DB"
+database_name = "silas"
+database_id = "PLACEHOLDER-RUN-wrangler-d1-create-silas"
