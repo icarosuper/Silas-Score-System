@@ -1,4 +1,4 @@
-create table occurrences (
+create table if not exists occurrences (
   id           text    primary key,
   occurred_at  integer not null,
   day          text    not null,
@@ -7,4 +7,4 @@ create table occurrences (
   author       text    not null,
   measures     text    not null
 );
-create index idx_occurrences_day on occurrences (day, occurred_at);
+create index if not exists idx_occurrences_day on occurrences (day, occurred_at);
