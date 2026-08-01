@@ -10,4 +10,4 @@ preview_urls = false
 [[d1_databases]]
 binding = "DB"
 database_name = "silas"
-database_id = "PLACEHOLDER-RUN-wrangler-d1-create-silas"
+database_id = "8b334a16-a196-4f59-9f27-07e05cd10994"
