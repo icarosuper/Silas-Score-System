@@ -280,21 +280,29 @@ aviso. `Urgência` é caro porque é escolha deliberada — o chefe *marcou*.
 
 ### Graduados
 
+Cada Faixa é definida por um **limite inferior**. Vale a maior Faixa que a medida
+alcança; medida abaixo do primeiro limite não aplica o Modificador.
+
+A convenção existe porque intervalos com as duas pontas deixam bordas ambíguas:
+`5–20 min` e `20–60 min` não dizem onde cai uma reunião que enrolou exatamente 20
+minutos, e o mesmo valia pra 2 h no Gap. Com limite inferior a pergunta não existe,
+e a tabela vira o próprio código — um par `[medida mínima, bônus]` por Faixa.
+
 **Risada** — quantidade de caracteres `s`:
 
-| Faixa | Medida | Bônus |
+| Faixa | A partir de | Bônus |
 |---|---|---|
-| Tique | 1–2 `s` | +10% |
-| Deboche | 3–8 `s` | +20% |
-| Escárnio | 9+ `s` | +35% |
+| Tique | 1 `s` | +10% |
+| Deboche | 3 `s` | +20% |
+| Escárnio | 9 `s` | +35% |
 
 **Pontuação Excessiva** — maior sequência repetida de `?`, `!` ou `.`:
 
-| Faixa | Medida | Bônus |
+| Faixa | A partir de | Bônus |
 |---|---|---|
-| Ênfase | 2–3 | +10% |
-| Ansiedade | 4–6 | +20% |
-| Desespero | 7+ | +35% |
+| Ênfase | 2 | +10% |
+| Ansiedade | 4 | +20% |
+| Desespero | 7 | +35% |
 
 Risada e Pontuação Excessiva são o mesmo fenômeno formal — repetição de caractere
 como intensificador — mas dizem coisas **opostas** sobre o chefe. `?????` é
@@ -303,22 +311,24 @@ cobra. Por isso são dois Modificadores e não um.
 
 **Gap de Tempo** — desde a última mensagem do chefe:
 
-| Faixa | Medida | Bônus |
+| Faixa | A partir de | Bônus |
 |---|---|---|
-| — | < 15 min | não aplica |
-| Retomada | 15 min – 2 h | +15% |
-| Reaparecimento | 2 h – 1 dia | +35% |
-| Ressurreição | 1 – 3 dias | +60% |
-| Assombração | 3+ dias | +90% |
+| Retomada | 15 min | +15% |
+| Reaparecimento | 2 h | +35% |
+| Ressurreição | 1 dia | +60% |
+| Assombração | 3 dias | +90% |
+
+`Assombração` não tem limite superior: o chefe pode sumir um mês, e a Faixa continua
+valendo. Quem implementa o SSS precisa manter o instante da última mensagem do chefe
+disponível por tempo indeterminado, não por uma janela fixa.
 
 **Combo** — a enésima Ocorrência da Categoria no Dia:
 
-| Faixa | Medida | Bônus |
+| Faixa | A partir da | Bônus |
 |---|---|---|
-| — | 1ª | não aplica |
 | Insistência | 2ª | +20% |
-| Perseguição | 3ª–4ª | +45% |
-| Assédio | 5ª+ | +75% |
+| Perseguição | 3ª | +45% |
+| Assédio | 5ª | +75% |
 
 Combo conta por **Categoria**, não por Evento. `Como estamos?` às 9h12,
 `Tudo em casa?` às 9h31 e `Subiu?` às 9h48 são três Eventos diferentes da mesma
@@ -335,21 +345,23 @@ mudar sozinho depois de o jogador já ter visto os números.
 
 **Enrolação** — minutos além do fim agendado da reunião:
 
-| Faixa | Medida | Bônus |
+| Faixa | A partir de | Bônus |
 |---|---|---|
-| — | até 5 min | não aplica |
-| Alongada | 5–20 min | +20% |
-| Sequestro | 20–60 min | +45% |
-| Refém | 60+ min | +80% |
+| Alongada | 6 min | +20% |
+| Sequestro | 21 min | +45% |
+| Refém | 61 min | +80% |
+
+Os limites são 6/21/61 e não 5/20/60 porque a redação anterior dizia "até 5 min não
+aplica": 5 minutos de atraso é reunião normal, não enrolação. A medida é em minutos
+inteiros, então o limite inferior é o primeiro minuto que conta.
 
 **Sequência de Vácuo** — Dias consecutivos de vácuo:
 
-| Faixa | Medida | Bônus |
+| Faixa | A partir de | Bônus |
 |---|---|---|
-| — | 1 dia | não aplica |
 | Reincidência | 2 dias | +25% |
-| Fuga | 3–4 dias | +55% |
-| Desaparecido | 5+ dias | +90% |
+| Fuga | 3 dias | +55% |
+| Desaparecido | 5 dias | +90% |
 
 ### Faixa sem bônus
 
